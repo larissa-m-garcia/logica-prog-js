@@ -28,8 +28,11 @@ function getCharFrequencies(s){
 function contem(s1, s2) {
     let str2 = getCharFrequencies(s2);
     return !(s1.length === 0 || s2.length === 0 || s1.length > s2.length) &&
-            [...getCharFrequencies(s1)].reduce((acc, letter) => (str2.get(letter[0]) ? str2.get(letter[0]) >= letter[1] : false) && acc
-        , true);
+            [...getCharFrequencies(s1)].every((letter) => (str2.get(letter[0]) && str2.get(letter[0]) >= letter[1]))
+
+    // return !(s1.length === 0 || s2.length === 0 || s1.length > s2.length) &&
+    //         [...getCharFrequencies(s1)].reduce((acc, letter) => (str2.get(letter[0]) ? str2.get(letter[0]) >= letter[1] : false) && acc
+    //     , true);
 }
 
 
